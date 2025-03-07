@@ -23,23 +23,28 @@
         /* 按钮样式 */
         #button-container {
             position: fixed;
-            top: 10px;
-            left: 10px;
+            bottom: 20px; /* 按钮靠底部 */
+            right: 10px;  /* 按钮靠右侧 */
             z-index: 9999;
             background-color: rgba(0, 0, 0, 0.7);
             padding: 10px;
             color: white;
             font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         button {
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 10px 15px;
             font-size: 16px;
             cursor: pointer;
             margin: 5px;
+            border-radius: 10px; /* 圆润按钮 */
+            transition: background-color 0.3s;
         }
 
         button:hover {
@@ -52,22 +57,19 @@
     <div id="panorama"></div>
 
     <div id="button-container">
-        <button onclick="moveToScene('scene1')">进入场景 1</button>
-        <button onclick="moveToScene('scene2')">进入场景 2</button>
-        <button onclick="moveToScene('scene3')">进入场景 3</button>
-        <button onclick="moveToScene('scene4')">进入场景 4</button>
-        <button onclick="moveToScene('scene5')">进入场景 5</button>
-        <button onclick="moveToScene('scene6')">进入场景 6</button>
-        <button onclick="moveToScene('scene7')">进入场景 7</button>
-        <button onclick="moveToScene('scene8')">进入场景 8</button>
-        <button onclick="moveToScene('scene9')">进入场景 9</button>
+        <button onclick="moveToScene('scene1')">1</button>
+        <button onclick="moveToScene('scene2')">2</button>
+        <button onclick="moveToScene('scene3')">3</button>
+        <button onclick="moveToScene('scene4')">4</button>
+        <button onclick="moveToScene('scene5')">5</button>
+        <button onclick="moveToScene('scene6')">6</button>
     </div>
 
     <script src="pannellum.js" defer></script>
     <script defer>
         let viewer;
 
-        // 预加载九个场景
+        // 预加载六个场景
         const scenes = {
             scene1: {
                 panorama: "M3_UHD_Render_equirectangular-jpg_Outside_a_Chinese_cultural_2046351650_13144840(1).jpg",
@@ -97,21 +99,6 @@
             scene6: {
                 panorama: "M3_UHD_Render_equirectangular-jpg_In_front_of_the_1678897953_13145362(1).jpg",
                 yaw: 135,
-                pitch: 0
-            },
-            scene7: {
-                panorama: "M3_UHD_Render_equirectangular-jpg_The_corridor_of_a_2080300368_13145102(1).jpg", // 替换为场景7的图片路径
-                yaw: 45,
-                pitch: 0
-            },
-            scene8: {
-                panorama: "M3_UHD_Render_equirectangular-jpg_A_modern_chemistry_laboratory_1758146799_13145078(1).jpg", // 替换为场景8的图片路径
-                yaw: 90,
-                pitch: 0
-            },
-            scene9: {
-                panorama: "M3_UHD_Render_equirectangular-jpg_A_modern_chemistry_laboratory_736469277_13145077(1).jpg", // 替换为场景9的图片路径
-                yaw: 180,
                 pitch: 0
             }
         };
@@ -153,21 +140,6 @@
                         "panorama": scenes.scene6.panorama,
                         "yaw": scenes.scene6.yaw,
                         "pitch": scenes.scene6.pitch
-                    },
-                    "scene7": {
-                        "panorama": scenes.scene7.panorama,
-                        "yaw": scenes.scene7.yaw,
-                        "pitch": scenes.scene7.pitch
-                    },
-                    "scene8": {
-                        "panorama": scenes.scene8.panorama,
-                        "yaw": scenes.scene8.yaw,
-                        "pitch": scenes.scene8.pitch
-                    },
-                    "scene9": {
-                        "panorama": scenes.scene9.panorama,
-                        "yaw": scenes.scene9.yaw,
-                        "pitch": scenes.scene9.pitch
                     }
                 }
             });
